@@ -5,7 +5,7 @@ auth = tweepy.OAuthHandler('5EEbrv2FAqd0J6t92RTTfbAdc', 'QDxf4Z2FVlVxaO1lsi3uX0e
 try:
     redirect_url = auth.get_authorization_url()
 except tweepy.TweepError:
-    print 'Error! Failed to get request token.'
+    print ('Error! Failed to get request token.')
 
 # Example w/o callback (desktop)
 # verifier = raw_input('Verifier:')
