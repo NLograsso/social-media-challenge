@@ -20,3 +20,14 @@ api = tweepy.API(auth)
 public_tweets = api.home_timeline()
 for tweet in public_tweets:
     print tweet.text
+
+
+print "THIS IS A TEST THAT NICK WANTS TO TRY"
+
+user = api.get_user('twitter')
+
+print user.screen_name
+print user.followers_count
+
+for friend in user.friends():
+	print friend.screen_name
