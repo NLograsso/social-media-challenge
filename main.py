@@ -13,10 +13,15 @@ api = tweepy.API(auth)
 # for tweet in public_tweets:
 #     print tweet.text
 
-user = api.get_user('realDonaldTrump')
+handle = input("Input Twitter Handle: ")
 
-print(user.screen_name)
-print(user.followers_count)
+user = api.get_user(handle)
+
+#print("\nTwitter Handle: {}".format(user.screen_name))
+print("\nName: {}".format(user.name))
+print("Description: {}".format(user.description))
+print("Followers: {}".format(user.followers_count))
+print("Friends: {}".format(user.friends_count))
 
 # for tweet in user.tweets():
 # 	print(tweet.text)
