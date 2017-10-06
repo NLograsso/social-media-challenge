@@ -1,5 +1,7 @@
 import tweepy
 
+
+# sets up auth and access keys
 consumer_key = '858dJ9NBYSMgu2u7Onu6LBcbG'
 consumer_secret = '66SlUxKVsqs3jovP8WStPeQ3w24TbRHa7vpjDIYI03jvHobCKs'
 
@@ -12,33 +14,16 @@ auth1.set_access_token(access_token_key, access_token_secret)
 
 api = tweepy.API(auth1)
 
+handle = input("Input Twitter Handle: ")
+user = api.get_user(handle)
 
-class MyStreamListener(tweepy.StreamListener):
-    def on_status(self, tweet):
-        print 'Ran on_status'
-
-def on_error(self, status_code):
-        if status_code == 420:
-            #returning False in on_data disconnects the stream
-            return False
-
-def on_data(self, data):
-	print 'Ok, this is actually running'
+print("\nTwitter Handle: {}".format(user.screen_name))
+print("\nName: {}".format(user.name))
+print("Description: {}".format(user.description))
+print("Followers: {}".format(user.followers_count))
+print("Friends: {}".format(user.friends_count))
 
 
-myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
-
-myStream.filter(track=['python'], async=True)
-
-# handle = input("Input Twitter Handle: ")
-
-# user = api.get_user(handle)
-
-# #print("\nTwitter Handle: {}".format(user.screen_name))
-# print("\nName: {}".format(user.name))
-# print("Description: {}".format(user.description))
-# print("Followers: {}".format(user.followers_count))
-# print("Friends: {}".format(user.friends_count))
-
-# # for tweet in user.tweets():
-# # 	print(tweet.text)
+# Streaming tweets, not used?
+#myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
+#myStream.filter(track=['python'], async=True)
